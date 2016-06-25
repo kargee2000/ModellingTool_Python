@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Model Builder - Sign In</title>
+<style>
+h1
+{
+color:#33B7E3;
+text-align:center;
+}
+p
+{
+font-family:'Exo', sans-serif;
+font-size:30px;
+}
+input {margin:1%;}
+#main{margin:3% 0 0 43%}
+</style>
+<body>
+<h1>Model  Builder</span></h1>
+<div id="main">
+	<form action="" method="post" name="login" id="login">
+		<div>
+		{% for error in form.errors.email %}
+		<div>
+		<span><font size="2em" color="red">[{{error}}] </font></span>
+		</div>
+		{% endfor %}
+		{% with messages = get_flashed_messages() %}
+		{% if messages %}
+		{% for message in messages %}
+		<div>
+			<span><font size="2em" color="red">{{ message }} </font></span>
+		</div>
+		{% endfor %}
+		{% endif %}
+		{% endwith %}
+		</div>
+		<p> 
+			{{form.email(size=30, placeholder="Username")}}
+		</p>
+		<p>{{form.password(size=30, placeholder="Password")}}</p>
+		<p><input class="button" type="submit" value="Sign In"></p>
+	</form>
+	
+</div>
+</body>
